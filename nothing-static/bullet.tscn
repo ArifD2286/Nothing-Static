@@ -1,17 +1,21 @@
 [gd_scene format=3 uid="uid://chp0lyrwn6wwp"]
 
+[ext_resource type="Script" uid="uid://bv4vg8usm6ihi" path="res://bullet.gd" id="1_v7oki"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dk5gl"]
 radius = 2.0
 height = 14.0
 
-[node name="Area2D" type="Area2D" unique_id=1125344905]
+[node name="Bullet" type="CharacterBody2D" unique_id=857462807]
+script = ExtResource("1_v7oki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=717236608]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_dk5gl")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1287106980]
-points = PackedVector2Array(0, -5, 0, 5)
+points = PackedVector2Array(-5, 0, 5, 0)
 width = 4.0
 default_color = Color(1, 1, 0.40392157, 1)
 begin_cap_mode = 2
 end_cap_mode = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=717236608]
-shape = SubResource("CapsuleShape2D_dk5gl")

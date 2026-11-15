@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://gt5yddovk6k2"]
+
+[ext_resource type="Script" uid="uid://cjgvep5navu3t" path="res://target.gd" id="1_t2jmu"]
+[ext_resource type="Texture2D" uid="uid://cpon7dlssqpw3" path="res://assets/patrick.png" id="2_e1yvt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s33ni"]
+size = Vector2(72, 68)
+
+[node name="target" type="CharacterBody2D" unique_id=101718286]
+script = ExtResource("1_t2jmu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=223314006]
+texture_filter = 1
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_e1yvt")
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="." unique_id=2029618731]
+shape = SubResource("RectangleShape2D_s33ni")
