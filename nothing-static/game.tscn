@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dkljyaag6lyn2"]
+
+[ext_resource type="Script" uid="uid://hbcu3oritxcs" path="res://game.gd" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://xasr02m0x32s" path="res://player.gd" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://chp0lyrwn6wwp" path="res://bullet.tscn" id="3_7jktm"]
+[ext_resource type="Texture2D" uid="uid://cv5s4rr1wtgy6" path="res://assets/Gloopy.png" id="4_ryrav"]
+[ext_resource type="Texture2D" uid="uid://cwy7cv6641yd8" path="res://assets/hand_holding.png" id="5_eow3j"]
+[ext_resource type="Texture2D" uid="uid://bhgf2vlpj7p1s" path="res://assets/gun.png" id="6_j5wjh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc0e3"]
+
+[node name="Node2D" type="Node2D" unique_id=2065265935]
+script = ExtResource("1_e2o6t")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=433971252]
+position = Vector2(576, 324)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_feb5d")
+bullet_scene = ExtResource("3_7jktm")
+speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1242822607]
+rotation = -1.5707964
+texture = ExtResource("4_ryrav")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D" unique_id=913348634]
+position = Vector2(144, 0)
+rotation = 1.5707964
+scale = Vector2(0.128, 0.128)
+texture = ExtResource("5_eow3j")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CharacterBody2D/Sprite2D2" unique_id=165830215]
+texture_filter = 1
+position = Vector2(-62.5, -375)
+scale = Vector2(4.9999995, 4.9999995)
+texture = ExtResource("6_j5wjh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=383736959]
+shape = SubResource("RectangleShape2D_fc0e3")
+
+[node name="Muzzle" type="Marker2D" parent="CharacterBody2D" unique_id=1718064747]
+position = Vector2(322, -8)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1265431825]
+position = Vector2(576, 324)
