@@ -3,12 +3,16 @@
 [ext_resource type="Script" uid="uid://hbcu3oritxcs" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://xasr02m0x32s" path="res://player.gd" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://chp0lyrwn6wwp" path="res://bullet.tscn" id="3_7jktm"]
+[ext_resource type="Texture2D" uid="uid://cbh1oi6msw0wb" path="res://assets/cyberpunk_edgerunner.jpg" id="3_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://cv5s4rr1wtgy6" path="res://assets/Gloopy.png" id="4_ryrav"]
 [ext_resource type="Texture2D" uid="uid://cwy7cv6641yd8" path="res://assets/hand_holding.png" id="5_eow3j"]
 [ext_resource type="Texture2D" uid="uid://bhgf2vlpj7p1s" path="res://assets/gun.png" id="6_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://bo6pbjt70mfjb" path="res://assets/wall.png" id="7_eow3j"]
 [ext_resource type="FontFile" uid="uid://cgp2kwv2gt06r" path="res://assets/Minecraft.ttf" id="8_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://gt5yddovk6k2" path="res://target.tscn" id="9_vef74"]
+[ext_resource type="AudioStream" uid="uid://c1bv4jpbk4xc5" path="res://assets/gun_sfx.mp3" id="10_hve3p"]
+[ext_resource type="AudioStream" uid="uid://cbsum5smapn45" path="res://assets/alert_sfx.mp3" id="11_mfdv2"]
+[ext_resource type="AudioStream" uid="uid://bvhyqoy62kprb" path="res://assets/yay_sfx.mp3" id="12_iotsf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eow3j"]
 texture = ExtResource("7_eow3j")
@@ -24,6 +28,20 @@ sources/0 = SubResource("TileSetAtlasSource_eow3j")
 [node name="Node2D" type="Node2D" unique_id=2065265935]
 script = ExtResource("1_e2o6t")
 patrick_scene = ExtResource("9_vef74")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=132477540]
+offset_left = -416.0
+offset_top = -256.0
+offset_right = 1568.0
+offset_bottom = 896.0
+texture = ExtResource("3_lc2xo")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=609194502]
+offset_left = -439.0
+offset_top = -273.0
+offset_right = 1561.0
+offset_bottom = 943.0
+color = Color(0.14509805, 0.14509805, 0.14509805, 0.627451)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=433971252]
 position = Vector2(576, 324)
@@ -76,11 +94,12 @@ color = Color(0.14509805, 0.14509805, 0.14509805, 1)
 [node name="Label" type="Label" parent="." unique_id=580498281]
 visible = false
 texture_filter = 1
-offset_left = 526.0
-offset_top = 314.0
-offset_right = 626.0
-offset_bottom = 344.0
+offset_left = 446.0
+offset_top = 290.0
+offset_right = 706.0
+offset_bottom = 353.0
 theme_override_fonts/font = ExtResource("8_j5wjh")
+theme_override_font_sizes/font_size = 32
 text = "Time: "
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -110,3 +129,12 @@ position = Vector2(242, 430)
 
 [node name="Marker2D8" type="Marker2D" parent="Node2D" unique_id=1597574369]
 position = Vector2(242, -78)
+
+[node name="Gun_sfx" type="AudioStreamPlayer" parent="." unique_id=1803673851]
+stream = ExtResource("10_hve3p")
+
+[node name="Alert_sfx" type="AudioStreamPlayer" parent="." unique_id=1987784507]
+stream = ExtResource("11_mfdv2")
+
+[node name="Yay_sfx" type="AudioStreamPlayer" parent="." unique_id=296336528]
+stream = ExtResource("12_iotsf")

@@ -4,6 +4,8 @@ extends Node2D
 @onready var label = $Label
 @onready var color_rect = $ColorRect
 @onready var spawnpoints: Array[Node] = $Node2D.get_children()
+@onready var alert_sfx = $Alert_sfx
+@onready var yay_sfx = $Yay_sfx
 @export var patrick_scene: PackedScene
 var time_taken: float = 0.0
 var start_time: int = 0
@@ -20,14 +22,20 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("reset") and finished:
+		get_tree().reload_current_scene()
 	if finished:
 		return
 	if player.alive == false:
+		finished = true
+		alert_sfx.play()
 		label.visible = true
 		label.text = "Game Over, u lose"
 		color_rect.visible = true
 	elif get_tree().get_nodes_in_group("target").size() == 0:
 		finished = true
+		yay_sfx.play()
 		time_taken = (Time.get_ticks_msec() - start_time) / 1000.0
-		label.text = "Time" 
-		
+		label.text = "Time: %.2f s" % time_taken
+		label.visible = true
+		color_rect.visible = true 

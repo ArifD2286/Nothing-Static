@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cjgvep5navu3t" path="res://target.gd" id="1_t2jmu"]
 [ext_resource type="Texture2D" uid="uid://cpon7dlssqpw3" path="res://assets/patrick.png" id="2_e1yvt"]
+[ext_resource type="AudioStream" uid="uid://d1u7n8ddm5wu5" path="res://assets/fart_sfx.mp3" id="3_5ebp1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s33ni"]
 size = Vector2(72, 68)
@@ -16,3 +17,6 @@ texture = ExtResource("2_e1yvt")
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="." unique_id=2029618731]
 shape = SubResource("RectangleShape2D_s33ni")
+
+[node name="Fart_sfx" type="AudioStreamPlayer" parent="." unique_id=755637062]
+stream = ExtResource("3_5ebp1")
